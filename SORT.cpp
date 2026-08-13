@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long
 #define f(i,n) for(ll i = 0; i < n; i++)
 
-void selection_sort(vector<int> &arr, int n){
+void selection_sort(vector<int> &arr, int n){         // O(n^2)
     f(i,n-1){
         int mini = i;
         for(int j=i+1;j<n;j++){
@@ -14,7 +14,7 @@ void selection_sort(vector<int> &arr, int n){
         swap(arr[i], arr[mini]);
     }
 }
-void bubble_sort(vector<int> &arr, int n){
+void bubble_sort(vector<int> &arr, int n){            // O(n^2)
     for(int j=n;j>0;j--){
         f(i,j-1){
             if(arr[i]>arr[i+1]){
@@ -23,7 +23,7 @@ void bubble_sort(vector<int> &arr, int n){
         }
     }
 }
-void insertion_sort(vector<int> &arr, int n){    
+void insertion_sort(vector<int> &arr, int n){         // O(n^2)
     f(i,n){
         for(int j=i;j>0;j--){
             if(arr[j]>=arr[j-1]){
@@ -48,14 +48,14 @@ int partition(vector<int> &arr, int low, int high){
     swap(arr[low],arr[r]);
     return r;
 }
-void quick_sort(vector<int> &arr, int low, int high){
+void quick_sort(vector<int> &arr, int low, int high){          // O(nlogn)
     if(low>=high){return;}
     int p_index = partition(arr,low,high);
     quick_sort(arr,low,p_index-1);
     quick_sort(arr,p_index+1,high);
 }
 
-void merge(vector<int> &arr, int low, int high, int mid){
+void merge(vector<int> &arr, int low, int high, int mid){      
     vector<int> ans;
     int l = low;
     int r = mid + 1;
@@ -89,11 +89,11 @@ void divide(int low, int high, vector<int> &arr){
     merge(arr,low,high,mid);
 }
 
-void merge_sort(vector<int> &arr, int n){
+void merge_sort(vector<int> &arr, int n){           // O(nlogn)
     divide(0, n-1, arr);
 }
 
-void heapify(vector<int>& arr, int n, int i){
+void heapify(vector<int>& arr, int n, int i){       // O(nlogn)
 
     int largest = i;
     int l = 2 * i + 1;

@@ -34,7 +34,7 @@ public:
 
         for(int i1=1;i1<=n1;i1++){
             for(int i2=1;i2<=n2;i2++){
-                if(s1[i1] == s2[i2]){
+                if(s1[i1-1] == s2[i2-1]){
                     dp[i1][i2] = 1 + dp[i1-1][i2-1];
                     ans = max(ans, dp[i1][i2]);
                 }else{
@@ -48,7 +48,7 @@ public:
 
 int main() {
     string s1 = "abcde";
-    string s2 = "abfce";
+    string s2 = "abcce";
 
     Solution sol;
     cout << "LCS: " << sol.longestCommonSubsequence(s1, s2) << endl;
